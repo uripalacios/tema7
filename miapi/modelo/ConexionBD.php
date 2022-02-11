@@ -13,6 +13,7 @@
             } catch (PDOException $ex) {
                 $consulta = null;
                 echo "Error: ".$ex->getMessage();
+                
             }finally{
                 unset($con);
                 return $consulta;
