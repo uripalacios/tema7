@@ -4,13 +4,21 @@ class cUsuarios extends BaseControlador{
     public function general()
     {
         $uri = $this->getUri();
+        $filtro = $this->getParametros();
         switch ($_SERVER['REQUEST_METHOD']) {
             case 'GET':
                 # code...
                 if(isset($uri[2])&& !isset($uri[3]))
                     $datos= UsuarioDAO::findById($uri[2]);
                 else if(!isset($uri[2])){
-                    $datos = UsuarioDAO::findAll();
+                    //si no tiene valores de filtro
+
+                    if(count($filtro)==0)
+                        $datos = UsuarioDAO::findAll();
+                    //si no
+                    else{
+                        $datos = UsuarioDAO::findFiltro($filtro);
+                    }
                 }
                 else{
                     //header mal

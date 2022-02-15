@@ -11,8 +11,21 @@
                 $consulta = $con->prepare($sql);
                 $consulta->execute($parametros);
             } catch (PDOException $ex) {
-                $consulta = null;
-                echo "Error: ".$ex->getMessage();
+                {
+                    $consulta = null;
+                    //echo "Error: " . $ex->getMessage();
+                    $bc = new BaseControlador();
+    
+                    $bc->sendRespuesta(
+                        json_encode(array("error" => "No se ha poddifo conectar a la BBDD")),
+                        array("Content-Type: application/json",
+                        "HTTP/1.1 500 Fallo en el Servidor")
+                    );
+    
+                    exit();
+    
+                    return null;
+                }
                 
             }finally{
                 unset($con);

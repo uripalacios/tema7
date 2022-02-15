@@ -16,6 +16,27 @@ class UsuarioDAO implements DAO{
                 $row = $consulta->fetchObject();
                 return $row;
         }
+        //busca por id(busca por la clave primaria)
+        public static function findFiltro($array){
+                $sql = "select codUsuario, nombre, Perfil from usuario where ";
+                $interrogacion = array();
+                if(isset($array['nombre'])){
+                        $sql = $sql . "nombre LIKE ?" ;
+                        $nombre ='%'.$array['nombre'].'%';
+                        array_push($interrogacion,$nombre);
+                        if(isset($array['perfil'])){
+                                $sql = $sql . " and ";
+                        }
+                }
+                if(isset($array['perfil'])){
+                        $sql = $sql . " Perfil = ?" ;
+                        array_push($interrogacion,$array['perfil']);
+                }
+                
+                $consulta =ConexionBD::ejecutaConsulta($sql,$interrogacion);
+                $row = $consulta->fetchAll(PDO::FETCH_ASSOC);
+                return $row;
+        }
         //modifica o actualiza
         public static function update($objeto){
                 $sql = "update usuario set nombre =?,password =?,Perfil = ? where codUsuario =?);";
