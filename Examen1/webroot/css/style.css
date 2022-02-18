@@ -1,0 +1,16 @@
+.rojo {
+    background-color: red;
+}
+
+input:checked + label{
+    background-color: green;
+}
+
+.oculto{
+    display: none;
+}
+
+input + label{
+    font-size: large;
+    padding: 5px;
+}
