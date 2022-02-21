@@ -2,12 +2,12 @@
 
 class UsuarioDAO implements DAO{
         public static function findAll(){
-        $sql = "select codUsuario, nombre, Perfil from usuario;";
+        $sql = "select id, nombre, perfil from usuario;";
         $consulta =ConexionBD::ejecutaConsulta($sql, []);
         $cont =0;
         while($row = $consulta->fetchObject())
         {
-            $usuario = new Usuario($row->codUsuario,
+            $usuario = new Usuario($row->id,
                 $row->nombre,'', $row->Perfil);
                 $registros[$cont]=$usuario;
                 $cont++;
@@ -32,12 +32,12 @@ class UsuarioDAO implements DAO{
         public static function delete($objeto){}
 
         public static function validaUser($user,$pass){
-                $sql = "select * from usuario where codUsuario = ? and password = ?";
+                $sql = "select * from usuario where nombre = ? and password = ?";
                 $consulta = ConexionBD::ejecutaConsulta($sql,[$user,$pass]);
                 $cont = 0;
                 $usuario = null;
                 while ($row = $consulta->fetchObject()) {
-                        $usuario  = new Usuario($row->codUsuario,$row->nombre,$row->password,$row->Perfil);
+                        $usuario  = new Usuario($row->id,$row->nombre,$row->password,$row->perfil);
                 }
                 return $usuario;
             }

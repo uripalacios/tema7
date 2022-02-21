@@ -1,7 +1,7 @@
 <?php
 
 class Usuario{
-    private $codUsuario;
+    private $id;
     private $nombre;
     private $password;
     private $perfil;
@@ -9,7 +9,7 @@ class Usuario{
 
     function __construct($codU,$nom,$pass,$perfil)
     {
-        $this->codUsuario = $codU;
+        $this->id = $codU;
         $this->nombre = $nom;
         $this->password = $pass;
         $this->perfil = $perfil;
