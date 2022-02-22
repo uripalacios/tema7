@@ -32,7 +32,7 @@ class UsuarioDAO implements DAO{
         public static function delete($objeto){}
 
         public static function validaUser($user,$pass){
-                $sql = "select * from usuario where nombre = ? and password = ?";
+                $sql = "select * from usuarios where nombre = ? and password = ?";
                 $consulta = ConexionBD::ejecutaConsulta($sql,[$user,$pass]);
                 $cont = 0;
                 $usuario = null;

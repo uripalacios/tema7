@@ -2,6 +2,7 @@
 if(isset($_SESSION['mensaje'])){
     echo $_SESSION['mensaje'];
 }
+echo "<h1>Iniciar Sesion</h1>";
 ?>
 
 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
@@ -9,12 +10,15 @@ if(isset($_SESSION['mensaje'])){
     <label for="nombre">Nombre:
         <input type="text" name="nombre" id="nombre">
     </label>
+    <br>
     <label for="pass">Contraseña:
         <input type="password" name="pass" id="pass">
     </label>
-    <label for="recuerdame">
+    <br>
+    <label for="recuerdame">Recordar
         <input type="checkbox" name="recuerdame" id="recuerdame">
     </label>
-    <input type="submit" value="Iniciar Sesión" name="iniciar">
+    <br>
+    <input type="submit" value="Ir a apuestas" name="iniciar">
 
 </form>

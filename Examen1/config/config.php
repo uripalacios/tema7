@@ -12,12 +12,15 @@
 //define ('IMAGENES',"/tema6/mvc/webroot/img");
 
 //validacion
-//include './core/funciones.php';
+include './core/funcApuesta.php';
+
 require './config/datosBD.php';
 require './modelo/ConexionBD.php';
 require './dao/DAO.php';
 require './modelo/Usuario.php';
+require './modelo/Apuesta.php';
 require './dao/UsuarioDAO.php';
+require './dao/ApuestaDAO.php';
 
 $controladores = [
     'login' => 'controlador/cLogin.php',
