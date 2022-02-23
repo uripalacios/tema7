@@ -4,6 +4,8 @@
     <?
             //generar los checks dinamicamente
                 generarCheck($apuesta);
+
+                
             //comprobar que el usuario ya haya realizado una apuesta
                 //mostrar boton de modificar
             if($apuesta != null){

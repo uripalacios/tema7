@@ -21,6 +21,7 @@ require './modelo/Usuario.php';
 require './modelo/Apuesta.php';
 require './dao/UsuarioDAO.php';
 require './dao/ApuestaDAO.php';
+require './dao/SorteoDAO.php';
 
 $controladores = [
     'login' => 'controlador/cLogin.php',

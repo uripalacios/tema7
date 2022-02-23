@@ -29,14 +29,14 @@ class ApuestaDAO implements DAO{
         $sql = "update apuesta set n1=?,n2=?,n3=?,n4=?,n5=? where idProfe = ?";
         
         $arrayParametros = [$objeto->n1,$objeto->n2,$objeto->n3,$objeto->n4,$objeto->n5,$objeto->idProfe];
-        $consulta = ConexionBD::ejecutaConsulta($sql,$arrayParametros);
+        ConexionBD::ejecutaConsulta($sql,$arrayParametros);
     }
     //crear o insertar
     public static function save($objeto){
         $sql = "insert into apuesta (id,idProfe,n1,n2,n3,n4,n5) values (?,?,?,?,?,?,?);";
 
         $arrayParametros = [$objeto->id,$objeto->idProfe,$objeto->n1,$objeto->n2,$objeto->n3,$objeto->n4,$objeto->n5];
-        $consulta = ConexionBD::ejecutaConsulta($sql,$arrayParametros);
+        ConexionBD::ejecutaConsulta($sql,$arrayParametros);
     }
     //borrar
     public static function delete($objeto){
