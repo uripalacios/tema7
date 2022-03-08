@@ -21,7 +21,7 @@ class ProductoDAO implements DAO{
         //modifica o actualiza
         public static function update($objeto){
                 $sql = "update producto set nombre =?,descripcion =? where codigo =?);";
-                $consulta = ConexionBD::ejecutaConsulta($sql, [$objeto->nombre,$objeto->codigo]);
+                $consulta = ConexionBD::ejecutaConsulta($sql, [$objeto->nombre,$objeto->descripcion,$objeto->codigo]);
                 //si el numero de filas afectadas es 1 busca y lo devulve
                 if($consulta->rowCount()==1){
                         return ProductoDAO::findById($objeto->codigo);
