@@ -62,6 +62,10 @@ class UsuarioDAO implements DAO{
         }
         //borrar
         public static function delete($objeto){}
+        public static function deleteById($id)
+        {
+                
+        }
 
         public static function validaUser($user,$pass){
                 $sql = "select * from usuario where codUsuario = ? and password = ?";
